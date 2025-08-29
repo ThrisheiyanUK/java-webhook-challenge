@@ -14,10 +14,10 @@ public class ChallengeOrchestrator implements CommandLineRunner {
     @Autowired
     private SqlSolverService sqlSolverService;
     
-    // Update these with your actual details
-    private static final String NAME = "John Doe";
-    private static final String REG_NO = "REG12347"; // Update with your actual odd registration number
-    private static final String EMAIL = "john@example.com";
+    // Actual student details
+    private static final String NAME = "Thrisheiyan U K";
+    private static final String REG_NO = "22bit0559"; // Odd registration number
+    private static final String EMAIL = "thrisheiyan1@gmail.com";
     
     @Override
     public void run(String... args) throws Exception {

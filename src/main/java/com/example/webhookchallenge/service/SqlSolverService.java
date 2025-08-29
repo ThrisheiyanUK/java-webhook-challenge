@@ -7,24 +7,27 @@ public class SqlSolverService {
     
     /**
      * Solves the SQL problem for Question 1 (Odd registration numbers)
-     * TODO: Replace this with the actual SQL solution from Question 1
      * 
-     * This is a placeholder - you need to update this with the actual SQL query
-     * from the Question 1 PDF that you have access to.
+     * Problem: Find the highest salary that was credited to an employee, but only for 
+     * transactions that were not made on the 1st day of any month. Along with the salary, 
+     * extract employee data like name (combined first+last), age and department.
+     * 
+     * Tables: DEPARTMENT, EMPLOYEE, PAYMENTS
      */
     public String solveQuestion1() {
-        // PLACEHOLDER SQL QUERY - REPLACE WITH ACTUAL SOLUTION FROM QUESTION 1
+        // SQL SOLUTION FOR QUESTION 1: Find highest salary not credited on 1st day of month
+        // with employee name, age, and department details
         String sqlQuery = "SELECT " +
-            "emp_id, " +
-            "emp_name, " +
-            "department, " +
-            "salary " +
-            "FROM employees " +
-            "WHERE salary > (" +
-            "SELECT AVG(salary) " +
-            "FROM employees" +
-            ") " +
-            "ORDER BY salary DESC";
+            "p.AMOUNT as SALARY, " +
+            "CONCAT(e.FIRST_NAME, ' ', e.LAST_NAME) as NAME, " +
+            "FLOOR(DATEDIFF(CURDATE(), e.DOB) / 365.25) as AGE, " +
+            "d.DEPARTMENT_NAME " +
+            "FROM PAYMENTS p " +
+            "JOIN EMPLOYEE e ON p.EMP_ID = e.EMP_ID " +
+            "JOIN DEPARTMENT d ON e.DEPARTMENT = d.DEPARTMENT_ID " +
+            "WHERE DAY(p.PAYMENT_TIME) != 1 " +
+            "ORDER BY p.AMOUNT DESC " +
+            "LIMIT 1";
         
         System.out.println("Solving SQL Question 1...");
         System.out.println("Generated SQL Query: " + sqlQuery);
@@ -33,11 +36,10 @@ public class SqlSolverService {
     }
     
     /**
-     * This method can be updated with the actual question content
-     * once you have access to the Question 1 PDF
+     * Returns the SQL solution for the actual Question 1 problem
+     * Expected result: The highest salary (74998.00) for Emily Brown from Sales department
      */
     public String getActualSolution() {
-        // TODO: Implement the actual SQL solution based on Question 1 requirements
         return solveQuestion1();
     }
 }

@@ -5,7 +5,7 @@
 Edit `src/main/java/com/example/webhookchallenge/service/ChallengeOrchestrator.java`:
 
 ```java
-private static final String NAME = "Your Full Name";
+private static final String NAME = "Thrishiyan;
 private static final String REG_NO = "YOUR_ODD_REG_NUMBER"; 
 private static final String EMAIL = "your.email@example.com";
 ```
