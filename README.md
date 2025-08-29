@@ -1,23 +1,18 @@
 # VIT Java Webhook Challenge
 
-This Spring Boot application implements the VIT Java webhook challenge requirements.
+**Student**: Thrisheiyan U K  
+**Registration**: 22bit0559  
+**Email**: thrisheiyan1@gmail.com
 
-## How it works
+Spring Boot application that implements the VIT Java webhook challenge requirements for odd registration numbers (Question 1).
 
-1. **On startup**: Sends a POST request to generate a webhook with your registration details
-2. **SQL Problem**: Solves Question 1 (for odd registration numbers) 
-3. **Solution Submission**: Submits the SQL solution to the webhook URL with JWT authentication
+## Features
 
-## Important: Update Your Details
-
-Before running, update the following in `ChallengeOrchestrator.java`:
-- `NAME`: Your actual name
-- `REG_NO`: Your actual odd registration number  
-- `EMAIL`: Your actual email
-
-## Important: Update SQL Solution
-
-Update the SQL query in `SqlSolverService.java` with the actual solution from Question 1 PDF.
+- ✅ Generates webhook on startup with student details
+- ✅ Implements SQL solution for Question 1
+- ✅ Submits solution using JWT authentication
+- ✅ Uses WebClient for HTTP requests
+- ✅ No controller endpoints (CommandLineRunner)
 
 ## Build and Run
 
@@ -31,20 +26,11 @@ java -jar target/webhook-challenge-0.0.1-SNAPSHOT.jar
 
 ## Project Structure
 
-- `WebhookService`: Handles API calls for webhook generation and solution submission
-- `SqlSolverService`: Contains the SQL solution logic
-- `ChallengeOrchestrator`: Orchestrates the entire workflow on startup
-- DTOs: `WebhookRequest`, `WebhookResponse`, `SolutionRequest`
+- `ChallengeOrchestrator` - Main workflow orchestration
+- `WebhookService` - HTTP request handling
+- `SqlSolverService` - SQL solution implementation
+- DTOs for API communication
 
-## Requirements Met
+## SQL Solution
 
-✅ Uses WebClient for HTTP requests  
-✅ No controller endpoints - triggers on startup via CommandLineRunner  
-✅ Uses JWT in Authorization header for solution submission  
-✅ Generates JAR file for submission  
-
-## Submission
-
-- Update your personal details and SQL solution
-- Build the JAR file
-- Upload to GitHub and submit the repository link and JAR download URL
+Implements solution for **Question 1** (odd registration numbers): Find highest salary not credited on 1st day of month, with employee details (name, age, department).

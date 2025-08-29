@@ -8,15 +8,12 @@ public class SqlSolverService {
     /**
      * Solves the SQL problem for Question 1 (Odd registration numbers)
      * 
-     * Problem: Find the highest salary that was credited to an employee, but only for 
-     * transactions that were not made on the 1st day of any month. Along with the salary, 
-     * extract employee data like name (combined first+last), age and department.
+     * Finds the highest salary credited to an employee, excluding transactions 
+     * made on the 1st day of any month, along with employee details.
      * 
-     * Tables: DEPARTMENT, EMPLOYEE, PAYMENTS
+     * @return SQL query string for Question 1 solution
      */
     public String solveQuestion1() {
-        // SQL SOLUTION FOR QUESTION 1: Find highest salary not credited on 1st day of month
-        // with employee name, age, and department details
         String sqlQuery = "SELECT " +
             "p.AMOUNT as SALARY, " +
             "CONCAT(e.FIRST_NAME, ' ', e.LAST_NAME) as NAME, " +
